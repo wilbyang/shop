@@ -6,6 +6,7 @@ module.exports = {
     '/images/*'
   ],
   navigateFallback: '/index.html',
+  importScripts: ['sw-msging.js'],
   navigateFallbackWhitelist: [/^(?!.*\.html$|\/data\/).*/],
   runtimeCaching: [
     {

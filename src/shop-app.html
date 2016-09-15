@@ -436,17 +436,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     console.log('endpoint:', sub.endpoint);
                   });
 
-                  navigator.addEventListener('push', function(event) {
-                    console.log('Push message', event);
-
-                    var title = 'Push message';
-
-                    event.waitUntil(
-                            self.registration.showNotification(title, {
-                              'body': 'The Message',
-                              'icon': 'images/icon.png'
-                            }));
-                  });
                 }).catch(function(error) {
                   console.log('Service Worker error :^(', error);
                 });

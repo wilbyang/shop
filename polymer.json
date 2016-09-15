@@ -9,6 +9,7 @@
     "src/lazy-resources.html"
   ],
   "sourceGlobs": [
+   "sw-msging.js",
    "src/**/*",
    "data/**/*",
    "images/**/*",
