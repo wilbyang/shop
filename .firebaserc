@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "friendlychat-57c11"
+    "default": "friendlychat-57c11",
+    "staging": "friendlychat-57c11"
   }
 }
