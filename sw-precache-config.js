@@ -21,7 +21,7 @@ module.exports = {
     },
     {
       urlPattern: /\/data\/.*json/,
-      handler: 'fastest',
+      handler: 'networkFirst',
       options: {
         cache: {
           maxEntries: 100,
