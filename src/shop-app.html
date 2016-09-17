@@ -433,24 +433,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }).then(function(reg) {
                   console.log('Service Worker is ready :^)', reg);
                   reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) {
-                    console.log('endpoint:', sub.endpoint);
-                    var rawKey = subscription.getKey ? subscription.getKey('p256dh') : '';
+                    console.log('subscription:', sub);
+                    var rawKey = sub.getKey ? sub.getKey('p256dh') : '';
                     key = rawKey ?
                             btoa(String.fromCharCode.apply(null, new Uint8Array(rawKey))) :
                             '';
-                    var rawAuthSecret = subscription.getKey ? subscription.getKey('auth') : '';
+                    var rawAuthSecret = sub.getKey ? sub.getKey('auth') : '';
                     authSecret = rawAuthSecret ?
                             btoa(String.fromCharCode.apply(null, new Uint8Array(rawAuthSecret))) :
                             '';
 
-                    endpoint = subscription.endpoint;
-                    fetch('./register', {
+                    endpoint = sub.endpoint;
+                    fetch('http://localhost:3000/msgpush/register', {
                       method: 'post',
                       headers: {
                         'Content-type': 'application/json'
                       },
                       body: JSON.stringify({
-                        endpoint: subscription.endpoint,
+                        endpoint: sub.endpoint,
                         key: key,
                         authSecret: authSecret,
                       }),
